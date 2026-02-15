@@ -121,7 +121,7 @@ a:hover { color:var(--color-cta); }
 #sp-logo .sp-default-logo,
 #sp-logo .sp-retina-logo,
 #sp-logo img.logo-image {
-  max-height: 140px !important; /* tamaño normal aumentado */
+  max-height: 160px !important; /* tamaño normal aumentado (was 140px) */
   width: auto !important;
 }
 
@@ -129,14 +129,14 @@ a:hover { color:var(--color-cta); }
 .sticky-wrapper.is-sticky #sp-header .sp-column .logo h1 img,
 header#sp-header.sticky #sp-logo img,
 #sp-header.sticky #sp-logo img {
-  max-height: 80px !important; /* tamaño cuando está fijo */
+  max-height: 96px !important; /* tamaño cuando está fijo (was 80px) */
   width: auto !important;
 }
 
 /* Ajustes responsive: móvil */
 @media (max-width: 767px) {
-  #sp-logo .sp-default-logo, #sp-logo .sp-retina-logo { max-height: 100px !important; }
-  .sticky-wrapper.is-sticky #sp-header .sp-column .logo h1 img { max-height: 72px !important; }
+  #sp-logo .sp-default-logo, #sp-logo .sp-retina-logo { max-height: 110px !important; }
+  .sticky-wrapper.is-sticky #sp-header .sp-column .logo h1 img { max-height: 88px !important; }
 }
 
 /* Asegurar variante por alta densidad */
