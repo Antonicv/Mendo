@@ -147,30 +147,3 @@ only screen and (min-device-pixel-ratio: 1.5) {
   #sp-logo .sp-retina-logo { display: block !important; }
   #sp-logo .sp-default-logo { display: none !important; }
 }
-
-/* --- ANIM + ICON overrides (variante mínima) --- */
-/* iconos dentro de los pie-charts */
-.sppb-addon .sppb-chart-icon .fa,
-.sppb-addon .sppb-chart-icon img {
-  font-size: 40px !important;    /* para <i> */
-  width: 40px; height: 40px;     /* para <img> */
-  color: var(--color-muted) !important;
-  display: inline-block;
-  line-height: 1 !important;
-}
-
-/* tamaño del círculo */
-.sppb-pie-chart {
-  width: 120px !important;
-  height: 120px !important;
-}
-
-/* ajustar animaciones globales (fallback) */
-.sppb-addon-container.sppb-wow {
-  animation-duration: 1.2s !important;
-  animation-delay: 0.2s !important;
-}
-
-/* Leaflet / gmap canvas styles */
-.sppb-addon-gmap-canvas { min-height: 240px; height: 350px; }
-#gm-zoom-in, #gm-zoom-out { cursor: pointer; display: inline-block; }
