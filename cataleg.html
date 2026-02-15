@@ -1,71 +1,344 @@
 <!DOCTYPE html>
 <html lang="ca">
+<!-- ==================== CAPÇALERA DEL DOCUMENT ==================== -->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Catàleg</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/template.css" rel="stylesheet" type="text/css">
-    <link href="/css/custom.css" rel="stylesheet" type="text/css">
+    <title>Catàleg - Materiales Mendoza</title>
+    
+    <link href="/css/animate.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/sppagebuilder.css" rel="stylesheet" type="text/css">
+	<link href="/css/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css">
+	<link href="/css/vm-ltr-common.css" rel="stylesheet" type="text/css">
+	<link href="/css/vm-ltr-site.css" rel="stylesheet" type="text/css">
+	<link href="/css/vm-ltr-reviews.css" rel="stylesheet" type="text/css">
+	<link href="/css/chosen.css" rel="stylesheet" type="text/css">
+	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/legacy.css" rel="stylesheet" type="text/css">
+	<link href="/css/template.css" rel="stylesheet" type="text/css">
+	<link href="/css/preset1.css" rel="stylesheet" type="text/css" class="preset">
+	<link href="/css/custom.css" rel="stylesheet" type="text/css">
+	<!-- inline styles moved to css/custom.css, removed to avoid duplication -->
+
+	<!-- ========== SCRIPTS JAVASCRIPT ========== -->
+	<script src="/js/jquery.min.js" type="text/javascript"></script>
+	<script src="/js/jquery-noconflict.js" type="text/javascript"></script>
+	<script src="/js/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="/js/jquery.easypiechart.min.js" type="text/javascript"></script>
+	<script src="/js/vmsite.js" type="text/javascript"></script>
+	<script src="/js/jquery.fancybox-1.3.4.pack.js" type="text/javascript"></script>
+	<script src="/js/vmprices.js" type="text/javascript" defer="defer"></script>
+	<script src="/js/chosen.jquery.min.js" type="text/javascript"></script>
+	
+	<!-- ========== LEAFLET MAPAS ========== -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+	<script src="/js/leaflet-map.js" type="text/javascript"></script>
+	
+	<!-- ========== MÁS SCRIPTS ========== -->
+	<script src="/js/sppagebuilder.js" type="text/javascript"></script>
+	<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/js/jquery.sticky.js" type="text/javascript"></script>
+	<script src="/js/modernizr.js" type="text/javascript"></script>
+	<script src="/js/SmoothScroll.js" type="text/javascript"></script>
+	<script src="/js/matchheight.js" type="text/javascript"></script>
+	<script src="/js/jquery.easing.min.js" type="text/javascript"></script>
+	<script src="/js/scrolling-nav.js" type="text/javascript"></script>
+	<script src="/js/jquery.nav.js" type="text/javascript"></script>
+	<script src="/js/vm-cart.js" type="text/javascript"></script>
+	<script src="/js/main.js" type="text/javascript"></script>
+	<script src="/js/custom.js" type="text/javascript"></script>
+	
+	<!-- ========== SCRIPT DE CONFIGURACIÓN DE VIRTUEMART ========== -->
+	<script type="text/javascript">
+if (typeof Virtuemart === "undefined")
+	Virtuemart = {};Virtuemart.vmSiteurl = vmSiteurl = 'https://www.materialesmendoza/' ;
+Virtuemart.vmLang = vmLang = "&lang=ca";
+Virtuemart.vmLangTag = vmLangTag = "ca";
+Itemid = '&Itemid=304';
+Virtuemart.addtocart_popup = "1" ; 
+usefancy = true;
+	</script>
+	
+	<!-- ========== METADATOS OPEN GRAPH ========== -->
+	<meta content="Inici" property="og:title">
+	<meta content="website" property="og:type">
+	<meta content="https://www.materiales.mendoza" property="og:url">
+	<link href="https://www.materiales.mendoza" rel="alternate" hreflang="x-default">
+
+    <!-- Estils addicionals per a la pàgina de catàleg -->
+    <!-- <style>
+        /* Ajustos per centrar les categories */
+        .sppb-row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .sppb-col-sm-8 {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .sppb-col-sm-4 {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .category-view {
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .productwrap {
+            margin-bottom: 30px;
+        }
+        
+        /* .product {
+            padding: 0 15px;
+        }
+         */
+        .spacer {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .spacer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .spacer-img {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Proporció quadrada */
+            overflow: hidden;
+        }
+        
+        .spacer-img img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .spacer:hover .spacer-img img {
+            transform: scale(1.05);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(31,42,68,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .spacer:hover .overlay {
+            opacity: 1;
+        }
+        
+        .overlay h3 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .horizontal-separator {
+            height: 20px;
+            clear: both;
+        }
+        
+        /* Ajustos per a la columna dreta */
+        .sppb-addon-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .sppb-addon-title {
+            color: #1F2A44;
+            font-size: 24px !important;
+            font-weight: 600;
+            margin-bottom: 25px !important;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #F57C00;
+        }
+        
+        .vm-product {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+        
+        .vm-product:last-child {
+            margin-bottom: 0;
+        }
+        
+        .vm-product li {
+            margin-bottom: 0;
+        }
+        
+        .spacer-inner h5 {
+            margin: 15px 0 5px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .spacer-inner h5 a {
+            color: #333333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .spacer-inner h5 a:hover {
+            color: #F57C00;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sppb-col-sm-8, .sppb-col-sm-4 {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .product {
+                margin-bottom: 20px;
+            }
+            
+            .overlay h3 {
+                font-size: 18px;
+            }
+        }
+    </style> -->
 </head>
+
+<!-- ==================== COS DEL DOCUMENT ==================== -->
 <body class="site">
-<header id="sp-header" class="flex">
-    <div class="container">
-        <div class="row">
-            <div id="sp-logo" class="col-xs-8 col-sm-3 col-md-3">
-                <div class="sp-column logobckg"><a class="logo" href="/"> <h1>
-                    <img class="sp-default-logo" src="/images/logo.png" alt="Materiales Mendoza">
-                    <img class="sp-retina-logo" src="/images/logo%402x.png" alt="Materiales Mendoza">
-                </h1></a></div>
-            </div>
-            <div id="sp-menu" class="col-xs-4 col-sm-9 col-md-9">
-                <div class="sp-column flex">
-                    <div class="sp-megamenu-wrapper">
-                        <ul class="sp-megamenu-parent hidden-xs hidden-sm">
-                            <li class="sp-menu-item"><a href="/">Inici</a></li>
-                            <li class="sp-menu-item active"><a href="/cataleg.html">Catàleg</a></li>
-                            <li class="sp-menu-item"><a href="/contacte.html">Contacte</a></li>
-                        </ul>
-                    </div>
+    
+    <!-- ========== BARRA SUPERIOR (SP-TOP-BAR) ========== -->
+    <section id="sp-top-bar">
+        <div class="container">
+            <div class="row">
+                <div id="sp-top1" class="col-sm-4 col-md-4 hidden-xs">
+                    <div class="sp-column "></div>
                 </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="container contact-icons" style="margin-top:10px;">
-    <ul class="sp-contact-info" style="list-style:none;display:flex;gap:20px;padding:0;margin:0;align-items:center;">
-        <li class="sp-contact-phone"><i class="pe pe-7s-headphones" style="margin-right:8px"></i>93 673 02 86</li>
-        <li class="sp-office-hours"><i class="pe pe-7s-timer" style="margin-right:8px"></i>Lun-Vie: 9 a 14h / 16 a 19h</li>
-        <li class="sp-contact-email"><i class="pe pe-7s-mail" style="margin-right:8px"></i><a href="mailto:info@materiales.barcelona">info@materiales.barcelona</a></li>
-    </ul>
-</div>
-
-<main id="sp-main-body">
-    <section class="sppb-section" style="margin:0px;padding:0px 10px;">
-        <div class="sppb-container">
-            <div class="sppb-row">
-                <div class="sppb-col-sm-12">
-                    <div class="sppb-addon-container sppb-wow fadeInUp">
-                        <div class="sppb-addon sppb-addon-text-block sppb-text-center handwritten">
-                            <h3 class="sppb-addon-title" style="margin-bottom:20px;font-size:72px;line-height:82px;"><em>Catàleg  <span class="major_color">Construcció</span></em></h3>
+                <div id="sp-top2" class="col-sm-8 col-md-8">
+                    <div class="sp-column pull-right">
+                        <!-- Información de contacto -->
+                        <ul class="sp-contact-info">
+                            <li class="sp-contact-phone"><i class="pe pe-7s-headphones"></i> +34 635.89.90.82</li>
+                            <li class="sp-office-hours"><i class="pe pe-7s-timer"></i> Lun-Vie: 9 a 20h</li>
+                            <li class="sp-contact-email"><i class="pe pe-7s-mail"></i> <a href="mailto:info@materiales.Mendoza">info@materiales.Mendoza</a></li>
+                        </ul>
+                        
+                        <!-- Módulo de idiomas -->
+                        <div class="sp-module ">
+                            <div class="sp-module-content">
+                                <div class="mod-languages">
+                                    <ul class="lang-inline">
+                                        <li class="" dir="ltr">
+                                            <a href="/es/">
+                                                <img src="/images/es_es.gif" data-toggle="tooltip" data-placement="bottom" title="Castellano" alt="Castellano">
+                                            </a>
+                                        </li>
+                                        <li class="lang-active" dir="ltr">
+                                            <a href="/ca/">
+                                                <img src="/images/ca_es.gif" data-toggle="tooltip" data-placement="bottom" title="Català" alt="Català">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- ========== CABECERA (SP-HEADER) CON LOGO Y MENÚ ========== -->
+    <header id="sp-header" class="flex">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div id="sp-logo" class="col-xs-8 col-sm-3 col-md-3">
+                    <div class="sp-column logobckg">
+                        <a class="logo" href="/"> 
+                            <h1> 
+                                <img class="sp-default-logo" src="/images/logo.png" alt="Materiales Mendoza"> 
+                                <img class="sp-retina-logo" src="/images/logo%402x.png" alt="Materiales Mendoza"> 
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Menú de navegación -->
+                <div id="sp-menu" class="col-xs-4 col-sm-9 col-md-9">
+                    <div class="sp-column flex">
+                        <div class="sp-megamenu-wrapper">
+                            <a id="offcanvas-toggler" class="visible-xs visible-sm" href="#"><i class="fa fa-bars"></i></a>
+                            <ul class="sp-megamenu-parent hidden-xs hidden-sm">
+                                <li class="sp-menu-item"><a href="/">Inici</a></li>
+                                <li class="sp-menu-item active"><a href="/cataleg.html">Catàleg</a></li>
+                                <li class="sp-menu-item"><a href="/contacte.html">Contacte</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ========== COS PRINCIPAL DE LA PÀGINA ========== -->
+    <main id="sp-main-body">
+        
+        <!-- ===== SECCIÓ 1: TÍTOL DEL CATÀLEG ===== -->
+        <section class="sppb-section" style="margin:0px;padding:40px 0 20px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-center handwritten">
+                            <h1 style="font-size:72px;line-height:82px;margin-bottom:20px;color:#1F2A44;">
+                                <em>Catàleg <span style="color:#F57C00;">Construcció</span></em>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="sppb-section">
-        <div class="sppb-container">
-            <div class="sppb-row">
-                <div class="sppb-col-sm-8">
-                    <div class="sppb-addon-container">
-                        <div class="category-view related-category-view">
-
-                            <div class="row productwrap">
-                                <div class="product col-sm-6 col-md-6 vertical-separator">
+        <!-- ===== SECCIÓ 2: GRAELLA DE CATEGORIES DE PRODUCTES ===== -->
+        <section class="sppb-section" style="padding:0 0 50px;">
+            <div class="container">
+                <div class="row">
+                    
+                    <!-- ===== COLUMNA ESQUERRA (GRAELLA DE CATEGORIES) ===== -->
+                    <div class="col-md-8">
+                        <div class="category-view">
+                            
+                            <!-- PRIMERA FILA: Ciments/Morters i Fundició -->
+                            <div class="row">
+                                <!-- Categoria: Ciments/Morters -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/ciments-morters">
@@ -75,8 +348,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="product col-sm-6 col-md-6">
+                                
+                                <!-- Categoria: Fundició -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/fundicio">
@@ -86,13 +360,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clear"></div>
                             </div>
-
+                            
                             <div class="horizontal-separator"></div>
-
-                            <div class="row productwrap">
-                                <div class="product col-sm-6 col-md-6 vertical-separator">
+                            
+                            <!-- SEGONA FILA: Tancaments metàl·lics i Àrids -->
+                            <div class="row">
+                                <!-- Categoria: Tancaments metàl·lics -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/tancaments-metal-lics">
@@ -102,8 +377,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="product col-sm-6 col-md-6">
+                                
+                                <!-- Categoria: Àrids -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/arids">
@@ -113,13 +389,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clear"></div>
                             </div>
-
+                            
                             <div class="horizontal-separator"></div>
-
-                            <div class="row productwrap">
-                                <div class="product col-sm-6 col-md-6 vertical-separator">
+                            
+                            <!-- TERCERA FILA: Guixos i Ceràmica -->
+                            <div class="row">
+                                <!-- Categoria: Guixos -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/guixos">
@@ -129,8 +406,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="product col-sm-6 col-md-6">
+                                
+                                <!-- Categoria: Ceràmica -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/ceramica">
@@ -140,13 +418,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clear"></div>
                             </div>
-
+                            
                             <div class="horizontal-separator"></div>
-
-                            <div class="row productwrap">
-                                <div class="product col-sm-6 col-md-6 vertical-separator">
+                            
+                            <!-- QUARTA FILA: Prefabricats de Formigó -->
+                            <div class="row">
+                                <!-- Categoria: Prefabricats de Formigó -->
+                                <div class="col-sm-6">
                                     <div class="spacer">
                                         <div class="spacer-img">
                                             <a href="/cataleg/prefabricats-de-formigo">
@@ -156,97 +435,201 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clear"></div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sppb-col-sm-4">
-                    <div class="sppb-addon-container" style="padding:10px 30px;">
-                        <div class="sppb-addon sppb-addon-module sp-module-content">
-                            <div class="sppb-addon-content">
-                                <h3 class="sppb-addon-title" style="font-size:25px;line-height:25px;">Materials del nostre catàleg</h3>
-                                <div class="vmgroup listview">
-                                    <!-- Featured items (simple links/images) -->
-                                    <ul class="vm-product productdetails">
-                                        <li class="width100 center">
-                                            <div class="spacer-img">
-                                                <a href="/cataleg/tancaments-metal-lics/tancament-lux-electrosoldat-rivisa-caracteristiques" title="Tancament Lux Electrosoldat"><img src="/images/lux_electrosoldada_02_640x640.jpg" alt="Tancament Lux Electrosoldat" class="featuredProductImage" border="0"></a>
-                                            </div>
-                                            <div class="spacer-inner">
-                                                <h5><a href="/cataleg/tancaments-metal-lics/tancament-lux-electrosoldat-rivisa-caracteristiques">Tancament Lux Electrosoldat</a></h5>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="vm-product productdetails">
-                                        <li class="width100 center">
-                                            <div class="spacer-img">
-                                                <a href="/cataleg/ciments-morters/morter-impermeabilitzar-mineral-caracteristiques" title="Morter impermeabilitzar"><img src="/images/imper-seal8_640x640.png" alt="Morter impermeabilitzar" class="featuredProductImage" border="0"></a>
-                                            </div>
-                                            <div class="spacer-inner">
-                                                <h5><a href="/cataleg/ciments-morters/morter-impermeabilitzar-mineral-caracteristiques">Morter impermeabilitzar</a></h5>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                    <ul class="vm-product productdetails">
-                                        <li class="width100 center">
-                                            <div class="spacer-img">
-                                                <a href="/cataleg/fundicio/tapa-clavegueram-d400-composite-caracteristiques" title="Tapa clavegueram composite"><img src="/images/alcantarilla%20polietileno7_640x640.jpg" alt="Tapa clavegueram composite" class="featuredProductImage" border="0"></a>
-                                            </div>
-                                            <div class="spacer-inner">
-                                                <h5><a href="/cataleg/fundicio/tapa-clavegueram-d400-composite-caracteristiques">Tapa clavegueram composite</a></h5>
-                                            </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
+                                
+                                <!-- Espai buit per mantenir la quadrícula -->
+                                <div class="col-sm-6"></div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- ===== COLUMNA DRETA (PRODUCTES DESTACATS) ===== -->
+                    
                 </div>
-
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<footer id="sp-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="sp-column ">
-                    <div class="sp-footer-content">
-                        <div class="sp-footer-logo">
-                            <a href="/"><img src="/images/logo.png" alt="Materiales Mendoza"></a>
+    <!-- ========== SECCIÓN DE CONTACTO (INFORMACIÓN Y FORMULARIO) ========== -->
+                                <section class="sppb-section " style="margin:0px;padding:40px 20px;background-color:#3d3d3d;background-image:url(/images/section-background-stripes2.svg);background-repeat:inherit;background-size:contain;background-attachment:inherit;background-position:50% 50%;">
+                                    <div class="sppb-container">
+                                        <div class="sppb-row">
+                                            
+                                            <!-- Columna izquierda: Información de contacto y horarios -->
+                                            <div class="sppb-col-sm-4">
+                                                <div class="sppb-addon-container sppb-wow fadeInLeft" style="color:#b3b3b3;padding:0px 15px 30px;" data-sppb-wow-duration="500ms" data-sppb-wow-delay="200ms">
+                                                    
+                                                    <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
+                                                        <h3 class="sppb-addon-title" style="margin-bottom:30px;color:#e0978f;">On som</h3>
+                                                        <div class="sppb-addon-content"></div>
+                                                    </div>
+                                                    
+                                                    <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
+                                                        <div class="sppb-addon-content">
+                                                            <p>Materiales Mendoza</p>
+                                                            <p>C/ Josep Fiter, s/n</p>
+                                                            <p>08940 Cornellà e Llobregat (Barcelona)</p>
+                                                            <p>Telf. +34 635.89.90.82</p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="sppb-divider sppb-divider-border" style="margin-top:32px;margin-bottom:32px; border-bottom-color:#575151;border-bottom-style:solid;border-bottom-width:1px;"></div>
+                                                    
+                                                    <!-- Horario mañana/tarde -->
+                                                    <div class="sppb-addon sppb-addon-feature sppb-text-left ">
+                                                        <div class="sppb-addon-content">
+                                                            <div class="sppb-media">
+                                                                <div class="pull-left">
+                                                                    <div class="sppb-icon">
+                                                                        <span style="display:inline-block;text-align:center;margin-top:10px;margin-bottom:10px;padding:10px;">
+                                                                            <i class="pe pe-7s-sun" style="font-size:36px;width:36px;height:36px;line-height:36px;"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sppb-media-body">
+                                                                    <div class="sppb-addon-text">
+                                                                        <blockquote style="border-left-width: 1px;">
+                                                                            <span style="color: #999; font-weight: 200;">DILLUNS - DIVENDRES</span><br>
+                                                                            <strong>9-14h  16-19h</strong>
+                                                                        </blockquote>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Horario fin de semana -->
+                                                    <div class="sppb-addon sppb-addon-feature sppb-text-left ">
+                                                        <div class="sppb-addon-content">
+                                                            <div class="sppb-media">
+                                                                <div class="pull-left">
+                                                                    <div class="sppb-icon">
+                                                                        <span style="display:inline-block;text-align:center;margin-top:10px;margin-bottom:10px;padding:10px;">
+                                                                            <i class="pe pe-7s-moon" style="font-size:36px;width:36px;height:36px;line-height:36px;"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sppb-media-body">
+                                                                    <div class="sppb-addon-text">
+                                                                        <blockquote style="border-left-width: 1px;">
+                                                                            <span style="color: #999; font-weight: 200;">DISSABTE - DIUMENGE</span><br>
+                                                                            <strong>TANCAT</strong>
+                                                                        </blockquote>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Columna central: Mensaje de contacto -->
+                                            <div class="sppb-col-sm-4">
+                                                <div class="sppb-addon-container sppb-wow fadeInRight" style="color:#b3b3b3;padding:30px 20px;" data-sppb-wow-duration="500ms" data-sppb-wow-delay="200ms">
+                                                    <div class="sppb-icon sppb-text-center">
+                                                        <span style="display:inline-block;color:#d68980;;">
+                                                            <i class="pe pe-7s-mail-open-file" style="font-size:65px;width:65px;height:65px;line-height:65px;;"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
+                                                        <div class="sppb-addon-content">
+                                                            <p style="font-size: 90%; margin-top: 30px;"><em>No trobes el que busques? Contacta'ns per correu i et fem una oferta personalitzada. A Materiales Mendoza t'ajudem a aconseguir el millor material al millor preu.</em></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Columna derecha: Formulario de contacto -->
+                                            <div class="sppb-col-sm-4">
+                                                <div class="sppb-addon-containercentered sppb-wow fadeInUp" style="color:#9e9e9e;padding:0px 15px 30px;" data-sppb-wow-duration="500ms">
+                                                    
+                                                    <div class="sppb-addon sppb-addon-text-block sppb-text-left ">
+                                                        <h3 class="sppb-addon-title" style="margin-bottom:30px;color:#e0978f;">Contacte ràpid</h3>
+                                                        <div class="sppb-addon-content"></div>
+                                                    </div>
+                                                    
+                                                    <!-- ========== FORMULARIO DE CONTACTO ========== -->
+                                                    <div class="sppb-addon sppb-addon-ajax-contact dark">
+                                                        <div class="sppb-addon-content">
+                                                            <form class="sppb-ajaxt-contact-form">
+                                                                <div class="sppb-form-group">
+                                                                    <input type="text" name="name" class="sppb-form-control input-name" placeholder="Nom" required="required">
+                                                                </div>
+                                                                <div class="sppb-form-group">
+                                                                    <input type="email" name="email" class="sppb-form-control input-email" placeholder="Email" required="required">
+                                                                </div>
+                                                                <div class="sppb-form-group">
+                                                                    <input type="text" name="subject" class="sppb-form-control input-subject" placeholder="Assumpte" required="required">
+                                                                </div>
+                                                                <div class="sppb-form-group">
+                                                                    <input type="text" name="captcha_question" class="sppb-form-control input-captcha" placeholder="3 + 4 = ?" required="required">
+                                                                </div>
+                                                                <div class="sppb-form-group">
+                                                                    <textarea name="message" rows="5" class="sppb-form-control input-message" placeholder="Missatge" required="required"></textarea>
+                                                                </div>
+                                                                <input type="hidden" name="recipient" value="aW5mb0BtYXRlcmlhbGVzLmJhcmNlbG9uYQ==">
+                                                                <input type="hidden" name="captcha_answer" value="8f14e45fceea167a5a36dedd4bea2543">
+                                                                <button type="submit" class="sppb-btn sppb-btn-light">
+                                                                    <i class="fa"></i> Enviar
+                                                                </button>
+                                                            </form>
+                                                            <div style="display:none;margin-top:10px;" class="sppb-ajax-contact-status"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
-                        <div class="sp-footer-menu">
-                            <ul class="sp-menu-parent">
-                                <li class="sp-menu-item"><a href="/">Inici</a></li>
-                                <li class="sp-menu-item"><a href="/cataleg.html">Catàleg</a></li>
-                                <li class="sp-menu-item"><a href="/contacte.html">Contacte</a></li>
-                            </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ========== PIE DE PÁGINA (SP-FOOTER) ========== -->
+        <footer id="sp-footer">
+            <div class="container">
+                <div class="row">
+                    <div id="sp-footer1" class="col-sm-12 col-md-12">
+                        <div class="sp-column ">
+                            <span class="sp-copyright"> © 2026 Materiales Mendoza. Tots els drets reservats. </span>
                         </div>
-                        <div class="sp-footer-social">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- ========== MENÚ OFF-CANVAS (MÓVIL) ========== -->
+        <div class="offcanvas-menu">
+            <a href="#" class="close-offcanvas"><i class="fa fa-remove"></i></a>
+            <div class="offcanvas-inner">
+                <div class="sp-module ">
+                    <div class="sp-module-content">
+                        <div class="search flex-search">
+                            <form action="/" method="post">
+                                <input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" type="text" size="20" placeholder="Cercar ..."> 		
+                                <input type="hidden" name="task" value="search">
+                                <input type="hidden" name="option" value="com_search">
+                                <input type="hidden" name="Itemid" value="304">
+                            </form>
                         </div>
+                    </div>
+                </div>
+                <div class="sp-module _menu">
+                    <div class="sp-module-content">
+                        <ul class="nav menu mod-list">
+                            <li class="item-286"><a href="/">casa</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
-
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/template.js"></script>
-<script src="/js/custom.js"></script>
+    <!-- ========== SCRIPTS JAVASCRIPT ========== -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/template.js"></script>
+    <script src="/js/custom.js"></script>
 </body>
 </html>
