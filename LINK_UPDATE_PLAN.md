@@ -4,7 +4,7 @@ Resumen
 
 Queremos que las páginas enlacen de forma consistente con la estructura que ya hemos creado:
 - Raíz con recursos compartidos: `/css`, `/js`, `/images`, `/fonts`.
-- Páginas por idioma en carpetas: `/ca/` y `/es/` (cada una contiene su `index.html` y `catalogo/cataleg` correspondiente).
+- Páginas por idioma en carpetas: `/ca/` y `/es/` (cada una contiene su `index.html`; los catálogos pueden ser archivos como `cataleg.html` o `catalogo.html` dentro de esas carpetas, no es obligatorio que sean subcarpetas).
 
 Objetivos
 
@@ -19,7 +19,7 @@ Acciones por archivo (qué editar y por qué)
 1) `index.html` (versión raíz en catalán)
    - Reemplazar enlaces `file:///...index_es.html` por `/es/`.
    - Asegurarse de que el selector de idioma queda: `<a href="/es/">` y `<a href="/ca/">`.
-   - Comprobar que los enlaces del menú apuntan a `/ca/`, `/ca/cataleg`, `/ca/contacte`.
+   - Comprobar que los enlaces del menú apuntan a `/ca/`, `/ca/cataleg.html`, `/ca/contacte.html`.
 
 2) `index_es.html` / `es/index.html`
    - Si usas `es/index.html`, actualizar su selector de idioma para apuntar a `/ca/` y `/es/`.
@@ -27,38 +27,21 @@ Acciones por archivo (qué editar y por qué)
    - Ajustar cualquier formulario o action que apunte a `/ca/...` para que apunte a `/es/...` cuando corresponda.
 
 3) `ca/index.html` y `ca/cataleg.html`
-   - Verificar menús: enlaces a `/ca/`, `/ca/cataleg`, `/ca/contacte`.
+   - Verificar menús: enlaces a `/ca/`, `/ca/cataleg.html` o `/ca/cataleg` según prefieras la URL canonical.
    - Confirmar assets usan rutas desde la raíz (`/css/...`, `/js/...`).
-   - Revisar enlaces a productos y subcategorías y convertirlos a la versión `/ca/...` (ej. `/ca/cataleg/ciments-morters`).
+   - Revisar enlaces a productos y subcategorías y convertirlos a la versión `/ca/...` apuntando al archivo correcto (ej. `/ca/cataleg.html` o `/ca/cataleg/` si se crea carpeta más adelante).
 
 4) `es/index.html` y `es/catalogo.html`
-   - Verificar menús: `/es/`, `/es/catalogo`, `/es/contacto`.
-   - Asegurar que los enlaces de productos usan `/es/catalogo/...`.
+   - Verificar menús: `/es/`, `/es/catalogo.html` (o `/es/catalogo` si el servidor lo mapea).
+   - Asegurar que los enlaces de productos usan `/es/catalogo/...` o `/es/catalogo.html` según convenga.
    - Comprobar formularios y acciones que referencien rutas con idioma.
 
 5) `catalogo.html` y `cataleg.html` en raíz (si existen)
-   - Si mantienes copias en la raíz, redirigir o actualizar enlaces internos para no romper navegación (mejor: eliminar duplicados y mantener carpetas `/ca` y `/es`).
+   - Observación: actualmente existen tanto copias en la raíz como dentro de `/ca` y `/es`.
+   - Recomendación: mantener únicamente las versiones en `/ca/` y `/es/` o bien actualizar todos los enlaces para apuntar a la copia que elijas (por ejemplo `/es/catalogo.html`). Evita tener duplicados que puedan desincronizarse.
 
 Reglas generales a aplicar (operaciones de búsqueda/reemplazo)
 
 - Buscar y reemplazar (solo si estás seguro):
   - `href="file:///C:/Users/Toni/Desktop/Mendo/index_es.html"` -> `href="/es/"`
-  - `href="/ca/` or `href="/es/` should be preserved, revisar inconsistencias.
-  - Rutas a assets: `css/` -> `/css/`, `js/` -> `/js/`, `images/` -> `/images/` (preferible usar `/` al inicio).
-- Evitar `../` si usamos rutas absolutas desde la raíz; facilita mover archivos entre carpetas.
-
-Precauciones y backups
-
-- Antes de ejecutar cambios masivos, hacer copias de seguridad: `index.html`, `index_es.html`, `catalogo.html`, `cataleg.html`, `css/template.css`.
-- Realizar cambios en pequeños pasos y validar en el navegador local.
-- Si el CMS (SPPageBuilder/Joomla) vuelve a escribir HTML, conviene mantener las versiones fuera del CMS o automatizar la generación.
-
-Checklist de verificación (mínimo)
-
-- [ ] Selector de idioma en `/` enlaza a `/es/` y `/ca/` (no `file:///`).
-- [ ] `es/index.html` y `ca/index.html` cargan CSS/JS/imagenes correctamente.
-- [ ] Menú y footer en cada versión apuntan a su carpeta de idioma correspondiente.
-- [ ] Páginas de catálogo/producto en `/es/` y `/ca/` muestran imágenes y enlaces correctos.
-- [ ] Prueba de navegación en modo local (abrir `file:///.../es/index.html` y `file:///.../ca/index.html`) o mejor, servir con un servidor local para probar rutas `/es/` y `/ca/`.
-
-Si quieres, aplico los cambios automáticamente (buscando/reemplazando los enlaces indicados) o hago las ediciones archivo por archivo y te dejo los diffs para revisar. ¿Cómo prefieres: que lo haga yo ahora (ediciones automáticas) o que te muestre los cambios propuestos primero?
+  - Si mantienes archivos estáticos sin servidor, usa la versión con .html: `href="/es/catalogo.html"` y `href="/ca/cataleg.html"`.
