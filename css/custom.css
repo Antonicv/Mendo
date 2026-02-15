@@ -1,0 +1,149 @@
+/* custom.css — overrides and site variables
+   Generated: 2026-02-15
+   Purpose: centralizar paleta, componentes y overrides de template (logo, botones, tarjetas)
+*/
+:root{
+  --color-primary: #1F2A44; /* Azul oscuro - Header, botones principales, títulos */
+  --color-cta: #F57C00;     /* Naranja industrial - CTA, botones destacados */
+  --color-text: #333333;    /* Gris carbón - Texto principal */
+  --color-bg: #F4F6F8;      /* Gris muy claro - Fondos de secciones */
+  --color-white: #FFFFFF;   /* Blanco */
+  --color-muted: #b3b3b3;
+}
+
+/* Progress bars */
+.sppb-progress-51 .sppb-progress-bar{transition:2s ease 1s;background-color:var(--color-cta) !important;}
+.sppb-progress .sppb-progress-bar{background-color:var(--color-cta) !important;}
+
+body{font-family:Open Sans, sans-serif; font-size:15px; font-weight:normal; color:var(--color-text); background-color:var(--color-bg);} 
+
+h1{font-family:Raleway, sans-serif; font-size:40px; font-weight:100; color:var(--color-primary); }
+h2{font-family:Raleway, sans-serif; font-size:33px; font-weight:300; color:var(--color-primary); }
+h3{font-family:Raleway, sans-serif; font-size:27px; font-weight:normal; color:var(--color-primary); }
+h4{font-family:Raleway, sans-serif; font-size:23px; font-weight:normal; }
+
+.sp-megamenu-parent{font-family:Open Sans, sans-serif; font-size:15px; font-weight:normal; color:var(--color-white); }
+
+#sp-top-bar{ background-color:var(--color-primary); color:var(--color-white); }
+#sp-top-bar a{color:var(--color-muted);} 
+
+#sp-header{ background-color:var(--color-primary); color:var(--color-white); }
+#sp-header a{color:rgba(255,255,255,0.95);} 
+#sp-header a:hover{color:var(--color-cta);} 
+
+.sticky-wrapper{background:var(--color-primary);} 
+
+#sp-footer{ background-color:var(--color-text); color:#b0b0b0; }
+#sp-footer a{color:#d6d6d6;} 
+#sp-footer a:hover{color:var(--color-cta);} 
+
+/* Botones y CTAs */
+.sppb-btn, .btn, button, .button { background-color:var(--color-primary); color:var(--color-white); border-color:var(--color-primary); }
+.sppb-btn:hover, .btn:hover, button:hover, .button:hover { background-color:var(--color-cta); border-color:var(--color-cta); color:var(--color-white); }
+
+/* Fondos de secciones claras */
+.section-light, .sppb-section.section-light { background-color:var(--color-bg); }
+
+/* Enlaces */
+a, a:link, a:visited { color:var(--color-primary); }
+a:hover { color:var(--color-cta); }
+
+/* Componentes UI: Botones y Tarjetas de servicio */
+.btn-primary, .sppb-btn-primary, button.btn-primary { 
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 10px 18px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .12s ease, transform .08s ease;
+}
+.btn-primary:hover, .sppb-btn-primary:hover, button.btn-primary:hover {
+  background-color: #0F1624; /* azul más oscuro */
+  transform: translateY(-1px);
+}
+
+.btn-secondary, .sppb-btn-secondary, button.btn-secondary {
+  background-color: var(--color-cta);
+  color: var(--color-white);
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 10px 18px;
+  border-radius: 4px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .12s ease, transform .08s ease;
+}
+.btn-secondary:hover, .sppb-btn-secondary:hover, button.btn-secondary:hover {
+  background-color: #D95A00; /* naranja más intenso */
+  transform: translateY(-1px);
+}
+
+.sppb-btn.sppb-btn-light { background-color: var(--color-cta); color: var(--color-white); border-color: var(--color-cta); }
+.sppb-btn.sppb-btn-light:hover { background-color: #D95A00; }
+
+/* Tarjetas de servicio */
+.service-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(31,42,68,0.06);
+  color: var(--color-text);
+  transition: box-shadow .15s ease, transform .08s ease;
+}
+.service-card:hover {
+  box-shadow: 0 12px 30px rgba(31,42,68,0.08);
+  transform: translateY(-4px);
+}
+.service-card .icon {
+  font-size: 28px;
+  color: var(--color-primary);
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(31,42,68,0.06);
+}
+.service-card h4 { margin: 12px 0 8px 0; color: var(--color-primary); font-size: 18px; }
+.service-card p { margin: 0; color: #666666; font-size: 14px; line-height: 1.45; }
+.service-card .service-cta { margin-top: 12px; display: inline-block; }
+
+.service-inline { display: flex; gap: 14px; align-items: flex-start; }
+.service-inline .icon { flex: 0 0 auto; }
+.service-inline .content { flex: 1 1 auto; }
+
+/* Logo overrides: control centralizado */
+#sp-logo .sp-default-logo,
+#sp-logo .sp-retina-logo,
+#sp-logo img.logo-image {
+  max-height: 140px !important; /* tamaño normal aumentado */
+  width: auto !important;
+}
+
+/* Sticky: mantener logo legible cuando la cabecera se reduce */
+.sticky-wrapper.is-sticky #sp-header .sp-column .logo h1 img,
+header#sp-header.sticky #sp-logo img,
+#sp-header.sticky #sp-logo img {
+  max-height: 80px !important; /* tamaño cuando está fijo */
+  width: auto !important;
+}
+
+/* Ajustes responsive: móvil */
+@media (max-width: 767px) {
+  #sp-logo .sp-default-logo, #sp-logo .sp-retina-logo { max-height: 100px !important; }
+  .sticky-wrapper.is-sticky #sp-header .sp-column .logo h1 img { max-height: 72px !important; }
+}
+
+/* Asegurar variante por alta densidad */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+  #sp-logo .sp-retina-logo { display: block !important; }
+  #sp-logo .sp-default-logo { display: none !important; }
+}
